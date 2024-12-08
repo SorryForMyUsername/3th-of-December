@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 namespace Практикум_14
 {
     /// <summary>
-    /// Задача 1. Массив предназначен для хранения значений ростов двенадцати человек. 
-    /// С помощью датчика случайных чисел заполнить массив целыми значениями, 
-    /// лежащими в диапазоне от 163 до 190 включительно. Вывести значения элементов 
-    /// с использованием цикла for. Найти средний рост.
+    /// Задача 4. Заполнить одномерный массив случайным образом от -5 до 5 целыми числами. 
+    /// Увеличить все элементы в два раза. Вывести новые значения массива 
+    /// с использованием цикла foreach.
     /// </summary>
     internal class Program
     {
@@ -19,7 +18,7 @@ namespace Практикум_14
             int[] array = new int[length];
             Random rnd = new Random();
 
-            for(int i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
                 array[i] = rnd.Next(min, max);
             }
@@ -29,22 +28,26 @@ namespace Практикум_14
 
         static void OutputArray(int[] array, string name)
         {
-            for(int i = 0; i < array.Length; i++)
+            foreach (int el in array)
             {
-                Console.WriteLine($"{name}[{i}] = {array[i]}");
+                if (el < 0)
+                {
+                    Console.WriteLine(el);
+                }
+                else
+                {
+                    Console.WriteLine($" {el}");
+                }
             }
         }
 
-        static int Average(int[] array)
+        static void ArrayMultiply(int[] array, int multiplier)
         {
-            int sum = 0;
-
-            foreach(int el in array)
+            Output($"Увеличение элементов массива в {multiplier} раза");
+            for (int i = 0; i < array.Length; i++)
             {
-                sum += el;
+                array[i] *= multiplier;
             }
-
-            return sum / array.Length;
         }
 
         static void Output(string output)
@@ -54,11 +57,11 @@ namespace Практикум_14
 
         static void Main(string[] args)
         {
-            int[] heights = RandomArray(12, 163, 190);
-            OutputArray(heights, nameof(heights));
+            int[] omas = RandomArray(10, -5, 5);
+            OutputArray(omas, nameof(omas));
 
-            int averageHeight = Average(heights);
-            Output($"Средний рост: {averageHeight}");
+            ArrayMultiply(omas, 2);
+            OutputArray(omas, nameof(omas));
 
             Console.ReadKey(true);
         }
