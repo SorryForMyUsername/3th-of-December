@@ -7,21 +7,19 @@ using System.Threading.Tasks;
 namespace Практикум_14
 {
     /// <summary>
-    /// Задача 1. Массив предназначен для хранения значений ростов двенадцати человек. 
-    /// С помощью датчика случайных чисел заполнить массив целыми значениями, 
-    /// лежащими в диапазоне от 163 до 190 включительно. Вывести значения элементов 
-    /// с использованием цикла for. Найти средний рост.
+    /// Задача3. Заполнить одномерный массив с клавиатуры и вывести элементы массива 
+    /// на экран в обратном порядке.
     /// </summary>
     internal class Program
     {
-        static int[] RandomArray(int length, int min, int max)
+        static int[] InputArray(int length, string name)
         {
             int[] array = new int[length];
-            Random rnd = new Random();
 
-            for(int i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
-                array[i] = rnd.Next(min, max);
+                Console.Write($"{name}[{i}] = ");
+                array[i] = int.Parse(Console.ReadLine());
             }
 
             return array;
@@ -29,22 +27,20 @@ namespace Практикум_14
 
         static void OutputArray(int[] array, string name)
         {
-            for(int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine($"{name}[{i}] = {array[i]}");
             }
         }
 
-        static int Average(int[] array)
+        static void OutputReverseArray(int[] array, string name)
         {
-            int sum = 0;
+            Console.WriteLine($"Массив {name} в обратном порядке: ");
 
-            foreach(int el in array)
+            for (int i = array.Length - 1; i >= 0; i--)
             {
-                sum += el;
+                Console.WriteLine($"{name}[{i}] = {array[i]}");
             }
-
-            return sum / array.Length;
         }
 
         static void Output(string output)
@@ -54,11 +50,8 @@ namespace Практикум_14
 
         static void Main(string[] args)
         {
-            int[] heights = RandomArray(12, 163, 190);
-            OutputArray(heights, nameof(heights));
-
-            int averageHeight = Average(heights);
-            Output($"Средний рост: {averageHeight}");
+            int[] omas = InputArray(5, "omas");
+            OutputReverseArray(omas, nameof(omas));
 
             Console.ReadKey(true);
         }
