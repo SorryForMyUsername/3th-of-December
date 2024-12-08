@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные с этой сборкой.
-[assembly: AssemblyTitle("Xml")]
+[assembly: AssemblyTitle("Практикум 13")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Xml")]
+[assembly: AssemblyProduct("Практикум 13")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID представляет идентификатор typelib, если этот проект доступен из модели COM
-[assembly: Guid("43a6c82a-a7f5-495f-a1f0-cd369e28e2b5")]
+[assembly: Guid("c89bfe80-5134-409d-8f63-4098a1e5a675")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
