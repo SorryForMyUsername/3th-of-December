@@ -7,24 +7,23 @@ using System.Threading.Tasks;
 namespace Практикум_14
 {
     /// <summary>
-    /// Задача 1. Массив предназначен для хранения значений ростов двенадцати человек. 
-    /// С помощью датчика случайных чисел заполнить массив целыми значениями, 
-    /// лежащими в диапазоне от 163 до 190 включительно. Вывести значения элементов 
-    /// с использованием цикла for. Найти средний рост.
+    /// Задача 2. Заполнить массив из восьми элементов следующими значениями 
+    /// с использованием явной инициализации: 
+    /// первый элемент массива равен 37, 
+    /// второй — 0, 
+    /// третий — 50, 
+    /// четвертый — 46,
+    /// пятый — 34, 
+    /// шестой — 46, 
+    /// седьмой — 0, 
+    /// восьмой —13. 
+    /// Найти максимальный и минимальный элементы массива.
     /// </summary>
     internal class Program
     {
-        static int[] RandomArray(int length, int min, int max)
+        static int[] InitialArray()
         {
-            int[] array = new int[length];
-            Random rnd = new Random();
-
-            for(int i = 0; i < length; i++)
-            {
-                array[i] = rnd.Next(min, max);
-            }
-
-            return array;
+            return new int[] { 37, 0, 50, 46, 34, 46, 0, 13 };
         }
 
         static void OutputArray(int[] array, string name)
@@ -35,16 +34,34 @@ namespace Практикум_14
             }
         }
 
-        static int Average(int[] array)
+        static int ArrayMax(int[] array)
         {
-            int sum = 0;
+            int max = 0;
 
             foreach(int el in array)
             {
-                sum += el;
+                if(el > max)
+                {
+                    max = el;
+                }
             }
 
-            return sum / array.Length;
+            return max;
+        }
+
+        static int ArrayMin(int[] array)
+        {
+            int min = 0;
+
+            foreach (int el in array)
+            {
+                if (el < min)
+                {
+                    min = el;
+                }
+            }
+
+            return min;
         }
 
         static void Output(string output)
@@ -54,11 +71,13 @@ namespace Практикум_14
 
         static void Main(string[] args)
         {
-            int[] heights = RandomArray(12, 163, 190);
-            OutputArray(heights, nameof(heights));
+            int[] omas = InitialArray();
 
-            int averageHeight = Average(heights);
-            Output($"Средний рост: {averageHeight}");
+            int max = ArrayMax(omas);
+            int min = ArrayMin(omas);
+
+            Output($"Максимальный элемент omas: {max}");
+            Output($"Минимальный элемент omas: {min}");
 
             Console.ReadKey(true);
         }
