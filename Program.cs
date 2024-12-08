@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 namespace Практикум_14
 {
     /// <summary>
-    /// Задача 1. Массив предназначен для хранения значений ростов двенадцати человек. 
-    /// С помощью датчика случайных чисел заполнить массив целыми значениями, 
-    /// лежащими в диапазоне от 163 до 190 включительно. Вывести значения элементов 
-    /// с использованием цикла for. Найти средний рост.
+    /// Задача 5. В массиве хранятся сведения об оценках 25 учеников по химии. 
+    /// Определить количество неуспевающих по химии учеников.
     /// </summary>
     internal class Program
     {
@@ -19,7 +17,7 @@ namespace Практикум_14
             int[] array = new int[length];
             Random rnd = new Random();
 
-            for(int i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
                 array[i] = rnd.Next(min, max);
             }
@@ -29,22 +27,32 @@ namespace Практикум_14
 
         static void OutputArray(int[] array, string name)
         {
-            for(int i = 0; i < array.Length; i++)
+            foreach (int el in array)
             {
-                Console.WriteLine($"{name}[{i}] = {array[i]}");
+                if (el < 0)
+                {
+                    Console.WriteLine(el);
+                }
+                else
+                {
+                    Console.WriteLine($" {el}");
+                }
             }
         }
 
-        static int Average(int[] array)
+        static int Count(int[] array, int condition)
         {
-            int sum = 0;
+            int count = 0;
 
             foreach(int el in array)
             {
-                sum += el;
+                if(el == condition)
+                {
+                    count++;
+                }
             }
 
-            return sum / array.Length;
+            return count;
         }
 
         static void Output(string output)
@@ -54,11 +62,10 @@ namespace Практикум_14
 
         static void Main(string[] args)
         {
-            int[] heights = RandomArray(12, 163, 190);
-            OutputArray(heights, nameof(heights));
+            int[] omas = RandomArray(25, 2, 5);
 
-            int averageHeight = Average(heights);
-            Output($"Средний рост: {averageHeight}");
+            int dStudent = Count(omas, 2);
+            Output($"Кол-во неуспевающих учеников: {dStudent}");
 
             Console.ReadKey(true);
         }
